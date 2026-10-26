@@ -65,6 +65,7 @@ const RatingReviewCard = ({courses}) => {
           </div>)
         })
       }
+      {allRatingReview?.length === 0 && (<div className='text-center text-richblack-300 '>No Reviews Found</div>)}
       </div>  
       
       
