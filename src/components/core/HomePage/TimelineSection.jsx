@@ -29,8 +29,8 @@ const timeLine = [
 const TimelineSection = () => {
   return (
     <div>
-        <div className='flex gap-20 items-center mb-20'>
-            <div className='w-[45%] flex flex-col gap-5'>
+        <div className='flex md:flex-row flex-col gap-20 md:items-center mb-20'>
+            <div className='md:w-[45%] flex flex-col gap-5 '>
                 {
                     timeLine.map((element,index) => {
                         return(
@@ -51,11 +51,11 @@ const TimelineSection = () => {
                     })
                 }
             </div>
-            <div className='relative w-[55%] shadow-blue-200 shadow-[0px_0px_30px_0px] '> 
+            <div className='relative md:w-[55%] shadow-blue-200 shadow-[0px_0px_30px_0px] '> 
                  <img src={timeLineImage} alt='timelineimg' className='shadow-white shadow-[20px_20px_0px_0px] object-cover w-fit'/>
 
-                 <div className='absolute bg-caribbeangreen-700 flex text-white py-7 uppercase left-[50%] translate-x-[-50%] translate-y-[-50%]'>
-                    <div className='flex items-center border-r border-caribbeangreen-300 px-7 gap-5'>
+                 <div className='absolute bg-caribbeangreen-700 flex md:flex-row flex-col gap-2  text-white py-7 uppercase md:left-[50%] right-0 bottom-0 md:translate-x-[-50%] md:translate-y-[-50%]  m-2 w-fit'>
+                    <div className='flex items-center md:border-r border-caribbeangreen-300 px-7 gap-5 '>
                         <p className='text-3xl font-bold '>10</p>
                         <p className='text-caribbeangreen-300 text-sm '>YEARS EXPERIENCES</p>
                     </div>

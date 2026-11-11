@@ -6,9 +6,9 @@ const CodeBlocks = (
     {position , heading, subheading, ctabtn1, ctabtn2, codeblock, bgGradient, codeColor}
 ) => {
   return (
-    <div className={`flex ${position} my-[10rem] justify-between items-center  gap-10`}>
+    <div className={`flex ${position} md:my-[10rem] my-10 justify-between items-center  gap-10`}>
         {/* section -1 */}
-        <div className='w-[50%] flex flex-col gap-8'>
+        <div className='md:w-[50%] flex flex-col gap-8'>
             {heading}
             <div className='text-richblack-300 font-bold'>
                 {subheading}
@@ -28,7 +28,7 @@ const CodeBlocks = (
 
 
         {/* section-2 */}
-        <div className='h-fit flex  w-[40%] py-4  bg-gradient-3 border-richblack-400 border-2  relative'>
+        <div className='h-fit flex  md:w-[40%] w-full py-4  bg-gradient-3 border-richblack-400 border-2  relative'>
             <div className={`${bgGradient} absolute rounded-full blur-[34px] h-[300px] w-[372.95px] opacity-20 left-[calc(50%-300px)] top-[calc(50%-230px)] [transform:matrix(1,0,-0.03,1,0,0)]`}></div>
             <div className='text-center w-[10%] flex flex-col font-inter text-richblack-400 font-bold'>
                 <p>1</p>
@@ -44,6 +44,8 @@ const CodeBlocks = (
                 <p>11</p>
                 <p>12</p>
                 <p>13</p>
+                <p>14</p>
+                <p>15</p>
             </div>
             <div className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor} pr-2`}>
                 <TypeAnimation

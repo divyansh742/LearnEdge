@@ -15,22 +15,23 @@ const Home = () => {
   return (
     <div>
       {/* Section - 1 */}
-      <div className='relative mx-auto flex flex-col w-11/12 items-center text-white  justify-between max-w-maxContent'>
+      <div className='relative mx-auto flex flex-col w-11/12
+        max-w-maxContent min-w-0 items-center text-white'>
 
         <Link to={"/signup"} className='mt-16'>
-          <div className='group  p-1 mx-auto rounded-full bg-richblack-800 font-bold text-richblack-200 transition-all duration-200 hover:scale-95 w-fit shadow-[inset_0_-1px_0_0_rgba(255,255,255,0.18)] hover:shadow-none '>
-            <div className='flex items-center gap-2 rounded-full px-10 py-[5px] group-hover:bg-richblack-900'>
+          <div className='group  p-1 md:mx-auto mx-0 rounded-full bg-richblack-800 font-bold text-richblack-200 transition-all duration-200 hover:scale-95 w-fit shadow-[inset_0_-1px_0_0_rgba(255,255,255,0.18)] hover:shadow-none '>
+            <div className='flex items-center  gap-2 rounded-full px-10 py-[5px] group-hover:bg-richblack-900'>
                 <p>Become an Instructor</p>  
                 <FaArrowRight/>
             </div>
           </div>
         </Link>
 
-        <div className='text-center text-4xl font-semibold mt-7 '>
+        <div className='md:text-center text-4xl font-semibold mt-7 '>
             Empower Your Future With <HighlightText text={"Coding Skills"}/>
         </div>
 
-        <div className='mt-4 font-bold text-lg text-center text-richblack-300 w-[90%]'> 
+        <div className='mt-4 font-bold text-lg md:text-center text-richblack-300 md:w-[90%]'> 
             With our online coding courses, you can learn at your own pace, from anywhere in the world, and get access to a wealth of resources, including hands-on projects, quizzes, and personalized feedback from instructors. 
         </div>
 
@@ -47,7 +48,7 @@ const Home = () => {
 
         <div>
             <CodeBlocks 
-                position={"lg:flex-row"}
+                position={"md:flex-row flex-col"}
                 heading={
                     <div className='text-4xl font-semibold'>
                         Unlock your <HighlightText text={"coding potential"}/> with our online courses
@@ -75,7 +76,7 @@ const Home = () => {
                 bgGradient={"bg-gradient-1"}
             />
             <CodeBlocks 
-                position={"lg:flex-row-reverse"}
+                position={"md:flex-row-reverse flex-col"}
                 heading={
                     <div className='text-4xl font-semibold'>
                         Start <HighlightText text={"coding in seconds"}/>
@@ -103,7 +104,6 @@ const Home = () => {
                 bgGradient={"bg-gradient-2"}
             />
         </div> 
-
         <ExploreMore/>
       </div>
 
@@ -114,7 +114,7 @@ const Home = () => {
                 <div className='h-[180px]'></div> {/*div used to give margin*/}
                 <div className='flex gap-7 text-white'>
                     <CTAButton active={true} linkTo={"/signup"}>
-                        <div className='flex gap-3 items-center'>
+                        <div className='flex md:text-base  gap-3 items-center'>
                             Explore Full Catalog
                             <FaArrowRight/>
                         </div>
@@ -131,11 +131,11 @@ const Home = () => {
 
         </div>
         <div className='w-11/12 max-w-maxContent flex flex-col items-center gap-7 mx-auto justify-between'>
-            <div className='flex mb-10 mt-20 justify-center gap-6'>
-                <div className='text-4xl font-semibold w-[45%]'>
+            <div className='flex md:flex-row flex-col mb-10 mt-20 justify-center gap-6'>
+                <div className='text-4xl font-semibold md:w-[45%]'>
                     Get the skills you need for a <HighlightText text={"job that is in demand"}/>
                 </div>
-                <div className='flex flex-col gap-10 w-[45%] items-start'>
+                <div className='flex flex-col gap-10 md:w-[45%] items-start'>
                     <div className='text-[16px]'>
                         The modern StudyNotion is the dictates its own terms. Today, to be a competitive specialist requires more than professional skills.
                     </div>
@@ -159,7 +159,7 @@ const Home = () => {
       {/* Section - 3 */}
       <div className='mx-auto flex flex-col w-11/12 items-center text-white  justify-between max-w-maxContent bg-richblack-900 gap-8'>
         <InstructorSection/>
-        <h2 className='text-center text-4xl font-semibold mt-32'>Review from other Learners</h2>
+        <h2 className='md:text-center text-4xl font-semibold mt-32'>Review from other Learners</h2>
         {/* Review slider */}
 
         <ReviewSection/>

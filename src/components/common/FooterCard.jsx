@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { FooterLink2 } from '../../data/footer-links';
 const FooterCard = (
-    {title}
+    {title,className}
 ) => {
     const result = FooterLink2.filter((value) => title === value.title);
     const links = result[0].links;
 
   return (
-    <div className='flex flex-col font-inter gap-3'>
+    <div className={`flex flex-col font-inter gap-3 ${className || ''}`}>
         <div className='text-richblack-50 font-semibold text-[16px]'>
             {title}
         </div>

@@ -34,15 +34,35 @@ const ReviewSection = ({reviewData}) => {
   return (
     <div className='w-full my-10'>
       <Swiper
-        spaceBetween={25}
-        slidesPerView={4}
+        spaceBetween={20}
+        slidesPerView={1.2}
         slidesPerGroup={1}
-        loop={review?.length > 4}
+        loop={review?.length > 1}
         autoplay={{
             delay: 2500,
             disableOnInteraction: false,
         }}
         modules={[Pagination, Autoplay]}
+        breakpoints={{
+        // sm: 640px and up
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+          loop: review?.length > 2,
+        },
+        // md: 768px and up
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+          loop: review?.length > 3,
+        },
+        // lg: 1024px and up
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 25,
+          loop: review?.length > 4,
+        },
+      }}
       >
         {
           review.map((element, index) => {
