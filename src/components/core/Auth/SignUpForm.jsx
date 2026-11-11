@@ -83,7 +83,7 @@ const SignUpForm = ({setIsInstructor}) => {
     <div>
       <Tab tabData={tabData} field={accountType} setField={setAccountType}/>
       <form className='flex w-full flex-col gap-y-4' onSubmit={handleOnSubmit}>
-        <div className='flex gap-x-4'>
+        <div className='flex md:flex-row flex-col gap-4 gap-x-4'>
           <label className='w-full'>
             <p className='mb-1 text-sm text-richblack-5 font-medium'>First Name <sup className='text-pink-200'> *</sup></p>
             <input type="text" required name='firstName' value={firstName} onChange={handleOnChange} placeholder='Enter First Name' className='w-full rounded-lg bg-richblack-700 p-3 text-richblack-5 shadow-[inset_0px_-1px_0px_rgba(255,255,255,0.18)]'/>
@@ -97,7 +97,7 @@ const SignUpForm = ({setIsInstructor}) => {
           <p className='mb-1 text-sm text-richblack-5 font-medium'>Email Address <sup className='text-pink-200'> *</sup></p>
           <input type="text" required name='email' value={email} onChange={handleOnChange} placeholder='Enter email address' className='w-full rounded-lg bg-richblack-700 p-3 text-richblack-5 shadow-[inset_0px_-1px_0px_rgba(255,255,255,0.18)]'/>
         </label>
-        <div className='flex gap-x-4'>
+        <div className='flex md:flex-row flex-col gap-4 gap-x-4'>
           <label className='relative'>
             <p className='mb-1 text-sm text-richblack-5 font-medium'>Create Password <sup className='text-pink-200'>*</sup></p>
             <input type={showPassword ? "text" : "password"} name='password' value={password} onChange={handleOnChange} placeholder='Enter Password' className='w-full rounded-lg bg-richblack-700 p-3 text-richblack-5 shadow-[inset_0px_-1px_0px_rgba(255,255,255,0.18)]'/>

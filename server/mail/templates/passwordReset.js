@@ -54,7 +54,7 @@ const passwordResetTemplate = (name,url) =>{
     </head>
     <body>
         <div class="container">
-            <a href="https://localhost:3000"><img class="logo"
+            <a href="https://learnedge-frontend-nine.vercel.app/"><img class="logo"
             src="https://res.cloudinary.com/dqn90humt/image/upload/v1773252618/LearnEdge_Logo_jsw1wk.png" alt="LearnEdge Logo"></a>
             <div class="message">Password Reset Confirmation</div>
             <div class="body">

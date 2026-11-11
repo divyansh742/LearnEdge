@@ -10,8 +10,8 @@ import Footer from "../components/common/Footer";
 const Contact = () => {
   return (
     <div>
-        <div className="w-11/12 max-w-maxContent text-white mx-auto flex justify-between gap-8 mt-24">
-            <div className="bg-richblack-800 max-h-max p-14 flex flex-col gap-8 w-[50%] rounded-lg">
+        <div className="w-11/12 max-w-maxContent text-white mx-auto flex justify-between md:flex-row flex-col gap-8 mt-24">
+            <div className="bg-richblack-800 max-h-max md:p-14 p-8 flex flex-col gap-8 md:w-[50%] rounded-lg">
                 <div>
                     <div className="flex  items-center gap-3 text-2xl font-semibold">
                         <MdMessage/>
@@ -37,14 +37,14 @@ const Contact = () => {
                     <p  className="text-richblack-100 text-base font-normal ml-9">+91 1234567890</p>
                 </div>
             </div>
-            <div className="text-richblack-400 flex flex-col gap-5 border-richblack-700 border rounded-xl p-16">
-                <h1 className="text-richblack-5 text-4xl font-semibold leading-10">Got a Idea? We've got the skills. Let's team up</h1>
+            <div className="text-richblack-400 flex flex-col gap-5 border-richblack-700 border rounded-xl md:p-16 p-4">
+                <h1 className="text-richblack-5 md:text-4xl text-2xl font-semibold leading-10">Got a Idea? We've got the skills. Let's team up</h1>
                 <p className="text-lg font-medium mb-7">Tell us more about yourself and what you're got in mind.</p>
                 <ContactForm/>
             </div>
         </div>
         <div className='mx-auto w-11/12 items-center text-white max-w-maxContent bg-richblack-900 gap-8'>
-            <h2 className='text-center text-4xl font-semibold mt-32'>Review from other Learners</h2>
+            <h2 className='md:text-center text-4xl font-semibold mt-32'>Review from other Learners</h2>
                 {/* Review slider */}
                 <ReviewSection/>
         </div>

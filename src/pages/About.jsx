@@ -28,17 +28,17 @@ const About = () => {
     <div>
         {/* section-1  image-section*/}
         <section className="bg-richblack-700">
-            <div className="relative mx-auto flex flex-col w-11/12 max-w-maxContent text-center text-white font-inter pt-14 gap-y-20">
-            <header className="mx-auto w-[64%] text-center">                
-                <h1 className="font-semibold text-4xl">Driving Innovation in Online Education for a <HighlightText text={"Brighter Future"}/></h1>
-                <p className="mt-3 mb-10 text-base font-semibold text-richblack-300">Studynotion is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.</p>
+            <div className="relative mx-auto flex flex-col w-11/12 max-w-maxContent text-center text-white font-inter pt-14 md:gap-y-20">
+            <header className="mx-auto md:w-[64%] md:text-center">                
+                <h1 className="font-semibold text-4xl text-left md:text-center">Driving Innovation in Online Education for a <HighlightText text={"Brighter Future"}/></h1>
+                <p className="mt-3 md:mb-10 mb-14  text-base font-semibold text-richblack-300 text-left md:text-center">Studynotion is at the forefront of driving innovation in online education. We're passionate about creating a brighter future by offering cutting-edge courses, leveraging emerging technologies, and nurturing a vibrant learning community.</p>
             </header>
             {/* //div to place images absolute thus margin*/}
-            <div className="h-[150px]"></div>
-                <div className="flex gap-3 w-full justify-between absolute top-[55%]">
-                    <img src={image1} alt="about-1" />
-                    <img src={image2} alt="about-2" />
-                    <img src={image3} alt="about-3" />
+            <div className="md:h-[150px] hidden md:block"></div>
+                <div className="flex gap-3 w-full justify-between absolute md:top-[55%] items-center top-[90%]">
+                    <img src={image1} alt="about-1" className="w-[31%] md:w-auto h-auto object-cover" />
+                    <img src={image2} alt="about-2" className="w-[31%] md:w-auto h-auto object-cover" />
+                    <img src={image3} alt="about-3" className="w-[31%] md:w-auto h-auto object-cover" />
 
                 </div>
             </div>
@@ -68,7 +68,7 @@ const About = () => {
         {/* section-3 founding-story */}
         <section>
             <div className="mx-auto flex flex-col w-11/12 max-w-maxContent text-richblack-500 gap-y-36 my-24 ">
-                <div className="flex gap-48 items-center">
+                <div className="flex md:flex-row flex-col gap-48 items-center">
                     <div className="flex flex-col gap-6">
                         <h1 className="bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCB045] bg-clip-text text-4xl font-semibold text-transparent">Our Founding Story</h1>
                         <p className="text-base font-semibold text-richblack-300">Our e-learning platform was born out of a shared vision and passion for transforming education. It all began with a group of educators, technologists, and lifelong learners who recognized the need for accessible, flexible, and high-quality learning opportunities in a rapidly evolving digital world.</p>
@@ -76,7 +76,7 @@ const About = () => {
                     </div>
                     <img src={foundingImage} alt="founding-story" className="shadow-[0_0_20px_0] shadow-[#FC6767]"/>
                 </div>
-                <div className="flex gap-48">
+                <div className="flex md:flex-row flex-col gap-48">
                     <div className="flex flex-col gap-6">
                         <h1 className="bg-gradient-to-b from-[#FF512F] to-[#F09819] bg-clip-text text-4xl font-semibold text-transparent">Our Vision</h1>
                         <p className="text-base font-semibold text-richblack-300">With this vision in mind, we set out on a journey to create an e-learning platform that would revolutionize the way people learn. Our team of dedicated experts worked tirelessly to develop a robust and intuitive platform that combines cutting-edge technology with engaging content, fostering a dynamic and interactive learning experience.</p>
@@ -91,7 +91,7 @@ const About = () => {
 
         {/* section-4 stats-section*/}
         <section className="bg-richblack-700">
-            <div className="w-11/12 max-w-maxContent flex justify-around py-9 text-center mx-auto">
+            <div className="w-11/12 max-w-maxContent grid md:grid-cols-4 grid-cols-2 gap-y-4 justify-around py-9 text-center mx-auto ">
                 {
                     section4Data.map((element,index) =>{
                         return(
@@ -107,8 +107,8 @@ const About = () => {
 
         {/* section-5 LearningGrid-section*/}
         <section>
-            <div className="grid grid-cols-4 font-inter mx-auto w-11/12 max-w-maxContent mt-10">
-                <div className="col-span-2 flex flex-col p-6 gap-7 w-[90%]">
+            <div className="grid md:grid-cols-4 grid-cols-1 font-inter mx-auto w-11/12 max-w-maxContent mt-10">
+                <div className="md:col-span-2 flex flex-col p-6 gap-7 md:w-[90%]">
                     <h1 className="text-4xl text-richblack-5 font-bold ">World-Class Learning for <HighlightText text={"Anyone, Anywhere"}/></h1>
                     <p className="text-richblack-5">Studynotion partners with more than 275+ leading universities and companies to bring flexible, affordable, job-relevant online learning to individuals and organizations worldwide.</p>
                     <div className="w-fit">
@@ -117,7 +117,7 @@ const About = () => {
                 {
                     section5Data.map((element,index) => {
                         return(
-                            <div key={index} className={`${index % 2 === 0 ? "bg-richblack-700": "bg-richblack-800"} ${index === 2 && "col-start-2"}   flex flex-col p-7 gap-8`}>
+                            <div key={index} className={`${index % 2 === 0 ? "bg-richblack-700": "bg-richblack-800"} ${index === 2 && "md:col-start-2"}   flex flex-col p-7 gap-8`}>
                                 <h1 className="text-richblack-5 text-lg">{element.title}</h1>
                                 <p className="text-richblack-300 text-medium">{element.description}</p>
                             </div>
@@ -131,18 +131,18 @@ const About = () => {
 
         {/* contact-form-section */}
         <div className="mx-auto w-11/12 items-center text-white max-w-maxContent bg-richblack-900 gap-8 flex flex-col">
-            <div className="text-center flex flex-col gap-3">
+            <div className="md:text-center flex flex-col gap-3">
                 <h1 className="text-4xl font-semibold mt-32">Get in Touch</h1>
                 <p className="text-richblack-300 text-medium">We'd love to hear for you, Please fill out this form.</p>
             </div>
-            <div className="w-[40%] mx-auto">
+            <div className="md:w-[40%] mx-auto">
                 <ContactForm/>
             </div>
         </div>
 
         {/* Review Section */}
         <div className='mx-auto w-11/12 items-center text-white max-w-maxContent bg-richblack-900 gap-8'>
-            <h2 className='text-center text-4xl font-semibold mt-32'>Review from other Learners</h2>
+            <h2 className='md:text-center text-4xl font-semibold mt-32'>Review from other Learners</h2>
             {/* Review slider */}
             <ReviewSection/>
         </div>

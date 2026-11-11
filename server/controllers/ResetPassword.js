@@ -26,7 +26,7 @@ const resetPasswordToken = async (req,res) =>{
         },{new: true})
 
         //create url
-        const url = `http://localhost:3000/update-password/${token}`
+        const url = `https://learnedge-frontend-nine.vercel.app/update-password/${token}`
         //send mail containing the url
         const mailTemplate = passwordResetTemplate(user.firstName,url);
         await mailSender(email,"Reset Your Password",mailTemplate)

@@ -19,7 +19,7 @@ const Template = (
         </div>
       ) : ( */}
         {/* //main-div */}
-        <div className="mx-auto flex w-11/12 max-w-maxContent justify-between gap-y-12 py-12 gap-x-12">
+        <div className="mx-auto flex md:flex-row flex-col-reverse items-center w-11/12 max-w-maxContent justify-between gap-y-12 py-12 gap-x-12">
           {loading && (
             <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/40">
               <div className="flex gap-2 items-center rounded-md bg-richblack-100 px-3 py-2">
