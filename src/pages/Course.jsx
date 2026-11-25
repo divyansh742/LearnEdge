@@ -128,8 +128,8 @@ const Course = () => {
     <div>
       <section className='bg-richblack-800 relative'>
         <div className='w-11/12 max-w-maxContent text-white mx-auto flex  flex-col justify-between gap-8'>
-          <div className='flex my-10 relative'>
-            <div className='w-[65%] border-r-richblack-700 border-r flex flex-col gap-4'>
+          <div className='flex md:flex-row flex-col my-10 relative'>
+            <div className='md:w-[65%] border-r-richblack-700 md:border-r flex flex-col gap-4 mb-6 md:mb-0'>
               <h1 className='text-4xl font-inter font-semibold'>{courseDetails?.courseName}</h1>
               <p className='text-richblack-200 font-medium'>{courseDetails?.courseDescription}</p>
               <div className='flex gap-1 items-center '>
@@ -148,7 +148,7 @@ const Course = () => {
               <p className='text-base text-richblack-200 flex items-center gap-1'><IoInformationCircleOutline size={20}/> Created at { new Date(courseDetails?.createdAt).toLocaleDateString()}</p>
             </div>
             {/* courseCard */}
-            <div className='w-[35%] absolute right-0 pl-4'>
+            <div className='md:w-[35%] md:absolute md:right-0 md:pl-4'>
               <div className='bg-richblack-700 rounded-lg'>
                 <img src={courseDetails?.thumbnail} alt="thumbnail"className='rounded-t-lg w-full'  />
                 <div className='flex flex-col p-6 gap-3'>
@@ -176,16 +176,16 @@ const Course = () => {
         </div>
       </section>
       <div className='w-11/12 max-w-maxContent text-white mx-auto flex  flex-col justify-between my-10 gap-12'>
-        <div className='flex flex-col p-4 w-[65%] border border-richblack-600 gap-2'>
+        <div className='flex flex-col p-4 md:w-[65%] border border-richblack-600 gap-2'>
           <p className='text-2xl font-semibold'>What you'll learn</p>
           <p className='text-md text-richblack-200'>{courseDetails?.whatYouWillLearn}</p>
         </div>
         {/* Course content */}
-        <div className='w-[65%] flex flex-col gap-2'>
+        <div className='md:w-[65%] flex flex-col gap-2'>
           <p className='text-2xl'>Course content</p>
           <div className='flex justify-between'>
-            <p className='text-base text-richblack-200'>{`${courseDetails?.courseContent?.length} sections • ${subSectionLengthTotal} Lectures • ${courseDetails?.totalDuration} total length`}</p>
-            <button className='text-yellow-50 text-base' onClick={() => setActiveSections([])}>Collapse all sections</button>
+            <p className='md:text-base text-xs text-richblack-200'>{`${courseDetails?.courseContent?.length} sections • ${subSectionLengthTotal} Lectures • ${courseDetails?.totalDuration} total length`}</p>
+            <button className='text-yellow-50 md:text-base text-xs' onClick={() => setActiveSections([])}>Collapse all sections</button>
           </div>
           {courseDetails?.courseContent.length === 0 && (<div className='text-center mt-2 text-sm text-richblack-100'>No Content Yet...</div>)}
           <div>
@@ -200,7 +200,7 @@ const Course = () => {
 
         </div>
         {/* Author */}
-        <div className='w-[65%] flex flex-col gap-2'>
+        <div className='md:w-[65%] flex flex-col gap-2'>
           <p className='text-2xl mb-2'>Author</p>
           <Link to={`/instructor/${courseDetails?.instructor._id}`}>
             <div className='flex items-center gap-2'>

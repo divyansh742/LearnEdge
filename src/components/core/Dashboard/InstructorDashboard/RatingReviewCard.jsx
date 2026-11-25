@@ -35,38 +35,40 @@ const RatingReviewCard = ({courses}) => {
           </select>
         </div>
       </div>
-      <div>
-      {
-        allRatingReview?.slice(0,11)?.map((element, index) => {
-          const image = element?.user ? element?.user?.image : "https://api.dicebear.com/5.x/initials/svg?seed=Anonymous";
-          const fullName = element?.user ? element?.user?.firstName + element?.user?.lastName : "Anonymous User";
-          return (
-          <div key={index} className={`flex items-center gap-3 ${index === allRatingReview?.length -1 ? "": "border-b"} py-3 border-richblack-600 w-full`}>
-            <div className='min-w-max'>
-              <img src={image} alt="img" className='w-10 rounded-full'/>
-            </div>
-            <div className='flex flex-col w-[20%]'>
-              <p className='font-semibold text-sm'>{fullName}</p>
-              <p className='text-sm text-richblack-300'>{element.courseName}</p>
-            </div>
-            <div className='text-richblack-300 w-[50%]'>
-              {element?.review}
-            </div>
-            <div className='flex items-center gap-2 w-[20%] justify-end'>
-              <div className='text-lg flex gap-1'>
-                <span className={`${(element.rating > 0 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
-                <span className={`${(element.rating > 1 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
-                <span className={`${(element.rating > 2 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
-                <span className={`${(element.rating > 3 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
-                <span className={`${(element.rating > 4 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
+      <div className='overflow-x-auto'>
+        <div className='min-w-[750px] md:min-w-0'>
+        {
+          allRatingReview?.slice(0,11)?.map((element, index) => {
+            const image = element?.user ? element?.user?.image : "https://api.dicebear.com/5.x/initials/svg?seed=Anonymous";
+            const fullName = element?.user ? element?.user?.firstName + element?.user?.lastName : "Anonymous User";
+            return (
+            <div key={index} className={`flex items-center gap-3 ${index === allRatingReview?.length -1 ? "": "border-b"} py-3 border-richblack-600 w-full`}>
+              <div className='min-w-max'>
+                <img src={image} alt="img" className='w-10 rounded-full'/>
               </div>
-              <p className='text-semibold text-richblack-200'>{element.rating.toFixed(1)}</p>
-            </div>
-          </div>)
-        })
-      }
-      {allRatingReview?.length === 0 && (<div className='text-center text-richblack-300 '>No Reviews Found</div>)}
-      </div>  
+              <div className='flex flex-col w-[20%] bg-richblack-800 sticky left-0 z-10'>
+                <p className='font-semibold text-sm'>{fullName}</p>
+                <p className='text-sm text-richblack-300'>{element.courseName}</p>
+              </div>
+              <div className='text-richblack-300 w-[50%]'>
+                {element?.review}
+              </div>
+              <div className='flex items-center gap-2 w-[20%] justify-end'>
+                <div className='text-lg flex gap-1'>
+                  <span className={`${(element.rating > 0 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
+                  <span className={`${(element.rating > 1 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
+                  <span className={`${(element.rating > 2 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
+                  <span className={`${(element.rating > 3 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
+                  <span className={`${(element.rating > 4 ) ?"text-yellow-100": "text-richblack-300"}`}>★</span>
+                </div>
+                <p className='text-semibold text-richblack-200'>{element.rating.toFixed(1)}</p>
+              </div>
+            </div>)
+          })
+        }
+        {allRatingReview?.length === 0 && (<div className='text-center text-richblack-300 '>No Reviews Found</div>)}
+        </div>  
+      </div>
       
       
     </div>

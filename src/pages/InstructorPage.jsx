@@ -69,7 +69,7 @@ const InstructorPage = () => {
                         </div>
                     )
                 }
-                <div className='grid grid-cols-3 gap-6'>
+                <div className='grid md:grid-cols-3 lg:grid-col-4 sm:grid-cols-2 grid-cols-1 gap-6'>
                     {courses?.map((element,index) => {
                         const totalRating = (Math.ceil((element?.ratingAndReviews?.length > 0
                         ? element.ratingAndReviews.reduce((sum, curr) => sum + curr.rating,0) / element.ratingAndReviews.length: 0) * 2)/2).toFixed(1);

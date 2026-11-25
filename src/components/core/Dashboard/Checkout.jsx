@@ -43,8 +43,11 @@ const Checkout = () => {
   }
   return (    
     <div className="mx-auto w-11/12 max-w-full py-10 text-richblack-5" >
-      <IoChevronBackCircle onClick={() => navigate(-1)} size={30} className='-mt-9 mb-9' />
-      <p className="mb-14 text-3xl font-medium text-richblack-5 font-inter leading-4">Checkout</p>
+      <div className='flex gap-2 items-center md:mb-10 mb-6 '>
+        <IoChevronBackCircle onClick={() => navigate(-1)} size={30} className='' />
+        <p className="text-3xl font-medium text-richblack-5 font-inter leading-4">Checkout</p>
+      </div>
+      
       <p className='text-md font-semibold text-richblack-500 mb-5'>{courses?.length} Courses to purchase</p>
       <div className='border-richblack-700 border mb-8'></div>
       {
@@ -53,14 +56,14 @@ const Checkout = () => {
           No course to purchase                        
         </div>))
       }
-      <div className='flex gap-10'>
+      <div className='flex gap-10 md:flex-row flex-col'>
         {/* courseCard */}
-        <div className='w-[65%]'>
+        <div className='md:w-[65%]'>
           {
               courses.map((element,index) => {
                   return (
-                      <div className='flex gap-3 justify-between border-b-richblack-700 border-b mb-10 pb-10' key={index}>
-                        <div className='flex gap-3'>
+                      <div className='flex md:flex-row flex-col gap-3 justify-between border-b-richblack-700 border-b mb-10 pb-10' key={index}>
+                        <div className='flex gap-3 w-full'>
                           <Link to={`/courses/${element._id}`}>
                             <img src={element.thumbnail} alt="thumbnail" className=' rounded-lg w-64 h-36 cursor pointer' />
                           </Link>
@@ -94,7 +97,7 @@ const Checkout = () => {
           }
         </div>
         {/* price box */}
-        { totalItems !== 0 && (<div className='bg-richblack-800 border border-richblack-700 rounded-lg flex flex-col h-fit p-5 w-[35%] gap-6'>
+        { totalItems !== 0 && (<div className='bg-richblack-800 border border-richblack-700 rounded-lg flex flex-col h-fit p-5 md:w-[35%] gap-6'>
             <div className='gap-2 flex flex-col'>
                 <p className='font-semibold'>Payment Details</p>
                 <p className='text-sm text-richblack-100'>Complete your purchase details items and providing your payment details to us .</p>

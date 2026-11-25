@@ -51,7 +51,7 @@ const CoursePublish = ({course,setCourse,setStep}) => {
         </div>
         <div className='flex  justify-between'>
             <button className= "text-center text-[16px] px-4 py-3 rounded-md font-bold hover:scale-95 w-fit flex gap-1 items-center bg-richblack-800 transition-all duration-200 h-fit shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] hover:shadow-none" onClick={() => setStep(2)}><IoIosArrowBack/> Back</button>
-            <div className='flex gap-4'>
+            <div className='flex gap-4 flex-wrap justify-end'>
                 <button className= "text-center text-[16px] px-4 py-3 rounded-md font-bold hover:scale-95 w-fit flex gap-1 items-center bg-richblack-800 transition-all duration-200 h-fit shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] hover:shadow-none" onClick={handleDraft}>Save as a Draft</button>
                 <button className= "text-center text-[16px] px-4 py-3 rounded-md font-bold hover:scale-95 w-fit flex gap-1 items-center h-fit bg-yellow-50 text-black transition-all duration-200 shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] hover:shadow-none" onClick={handlePublish}>Save and Publish</button>
             </div>

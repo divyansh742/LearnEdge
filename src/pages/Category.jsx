@@ -77,16 +77,31 @@ const Category = () => {
                 {
                     allDetails?.selectedCourses?.length > 0  && (
                         <div className='relative'>
-                        <button className='prev-btn p-2 bg-richblack-600 rounded-full w-fit h-fit absolute top-[50%] -ml-12'><FaAngleLeft/></button>
+                        <button className='prev-btn p-2 md:bg-richblack-600 rounded-full w-fit h-fit absolute top-[50%] md:-ml-12 ml-7'><FaAngleLeft/></button>
                         <Swiper
                             spaceBetween={25}
-                            slidesPerView={3}
+                            slidesPerView={1}
                             slidesPerGroup={1}
                             navigation = {{
                                 prevEl: ".prev-btn",
                                 nextEl: ".next-btn"
                             }}
                             modules={[Navigation]}
+                            breakpoints={{
+                                425:{
+                                    slidesPerView:2,
+                                    slidesPerGroup:1,   
+                                },
+                                768:{
+                                    slidesPerView: 3,
+                                    slidesPerGroup:1,
+                                },
+                                1024:{
+                                    slidesPerView: 4,
+                                    slidesPerGroup:1,
+                                }
+
+                            }}
                         >{
                             allDetails.selectedCourses.map((element,index) => {
                                 const totalRating = (Math.ceil((element?.ratingAndReviews?.length > 0
@@ -126,7 +141,7 @@ const Category = () => {
                             })
                         }
                         </Swiper>
-                        <button className='next-btn p-2 bg-richblack-600 rounded-full w-fit h-fit absolute right-0 -mr-12 top-[50%] '><FaAngleRight/></button>
+                        <button className='next-btn p-2 md:bg-richblack-600 rounded-full w-fit h-fit absolute right-0 md-mr-12 -mr-7 top-[50%] '><FaAngleRight/></button>
                         </div>
                     )
 
@@ -146,16 +161,30 @@ const Category = () => {
                 {
                     allDetails?.differentCourses?.length > 0  && (
                         <div className='relative'>
-                            <button className='prev-btn-2 p-2 bg-richblack-600 rounded-full w-fit h-fit absolute top-[50%] -ml-12 '><FaAngleLeft/></button>
+                            <button className='prev-btn-2 p-2 md:bg-richblack-600 rounded-full w-fit h-fit absolute top-[50%] md:-ml-12 -ml-7'><FaAngleLeft/></button>
                             <Swiper
                                 spaceBetween={25}
-                                slidesPerView={3}
+                                slidesPerView={1}
                                 slidesPerGroup={1}
                                 navigation = {{
                                     prevEl: ".prev-btn-2",
                                     nextEl: ".next-btn-2"
                                 }}
                                 modules={[Navigation]}
+                                breakpoints={{
+                                425:{
+                                    slidesPerView:2,
+                                    slidesPerGroup:1,   
+                                },
+                                768:{
+                                    slidesPerView: 3,
+                                    slidesPerGroup:1,
+                                },
+                                1024:{
+                                    slidesPerView: 4,
+                                    slidesPerGroup:1,
+                                }
+                                }}
                             >{
                                 allDetails.differentCourses.map((element,index) => {
                                     const totalRating = (Math.ceil((element?.ratingAndReviews?.length > 0
@@ -195,7 +224,7 @@ const Category = () => {
                                 })
                             }
                             </Swiper>
-                            <button className='next-btn-2 p-2 bg-richblack-600 rounded-full w-fit h-fit absolute top-[50%] right-0 -mr-12'><FaAngleRight/></button>
+                            <button className='next-btn-2 p-2 md:bg-richblack-600 rounded-full w-fit h-fit absolute top-[50%] right-0 md:-mr-12 -mr-7'><FaAngleRight/></button>
                         </div>
                     )
 
@@ -215,16 +244,30 @@ const Category = () => {
                 {
                     allDetails?.mostSellingCourses?.length > 0  && (
                         <div className='relative'>
-                            <button className='prev-btn-3 p-2 bg-richblack-600 rounded-full w-fit h-fit  absolute top-[50%] -ml-12 '><FaAngleLeft/></button>
+                            <button className='prev-btn-3 p-2 md:bg-richblack-600 rounded-full w-fit h-fit  absolute top-[50%] md:-ml-12 -ml-7 '><FaAngleLeft/></button>
                             <Swiper
                                 spaceBetween={25}
-                                slidesPerView={3}
+                                slidesPerView={1}
                                 slidesPerGroup={1}
                                 navigation = {{
                                     prevEl: ".prev-btn-3",
                                     nextEl: ".next-btn-3"
                                 }}
                                 modules={[Navigation]}
+                                breakpoints={{
+                                425:{
+                                    slidesPerView:2,
+                                    slidesPerGroup:1,   
+                                },
+                                768:{
+                                    slidesPerView: 3,
+                                    slidesPerGroup:1,
+                                },
+                                1024:{
+                                    slidesPerView: 4,
+                                    slidesPerGroup:1,
+                                }
+                                }}
                             >{
                                 allDetails.mostSellingCourses.map((element,index) => {
                                     const totalRating = (Math.ceil((element?.ratingAndReviews?.length > 0
@@ -264,7 +307,7 @@ const Category = () => {
                                 })
                             }
                             </Swiper>
-                            <button className='next-btn-3 p-2 bg-richblack-600 rounded-full w-fit h-fit absolute top-[50%] right-0 -mr-12'><FaAngleRight/></button>
+                            <button className='next-btn-3 p-2 md:bg-richblack-600 rounded-full w-fit h-fit absolute top-[50%] right-0 md:-mr-12 -mr-7'><FaAngleRight/></button>
                         </div>
                     )
 

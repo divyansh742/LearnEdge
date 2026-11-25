@@ -30,9 +30,9 @@ const VerifyEmail = () => {
                 <div>Loading...</div>
             </div>
         ) : (
-            <div className="text-white flex justify-center flex-col max-w-[500px] p-4 gap-y-6">
+            <div className="text-white flex justify-center flex-col md:max-w-[500px] p-4 gap-y-6 ">
                 <h1 className="font-semibold text-3xl">Verify Email</h1>
-                <p className="text-lg text-richblack-100">A verification code has been sent to you. Enter the code below</p>
+                <p className="md:text-lg text-base text-richblack-100">A verification code has been sent to you. Enter the code below</p>
                 <form onSubmit={handleOnSubmit}>
                     <OTPInput
                         value={otp}
@@ -40,7 +40,7 @@ const VerifyEmail = () => {
                         numInputs={6}
                         renderInput={(props) => (
                             <input {...props} placeholder="-" style={{}}//this helps in working tailwind classname
-                            className="w-[60px] h-[48px] border-0 text-2xl bg-richblack-800 rounded-lg text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50 shadow-[inset_0px_-1px_0px_rgba(255,255,255,0.40)]"
+                            className="md:w-[60px] w-[50px]  h-[48px] border-0 md:text-2xl text-base bg-richblack-800 rounded-lg text-richblack-5 aspect-square text-center focus:border-0 focus:outline-2 focus:outline-yellow-50 shadow-[inset_0px_-1px_0px_rgba(255,255,255,0.40)]"
                             />
                         )}
                         containerStyle={"justify-between"}

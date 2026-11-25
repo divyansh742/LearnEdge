@@ -97,8 +97,8 @@ const EnrolledCourses = () => {
               {index === 0 && 
                 <div className='flex  p-4 bg-richblack-700 rounded-t-lg text-richblack-200 text-sm font-semibold'>
                   <div className='w-[45%]'>Course Name</div>
-                  <div className='w-[35%]'>Durations</div>
-                  <div className='w-[20%]'>Progress</div>
+                  <div className='w-[35%] text-center'>Durations</div>
+                  <div className='w-[20%] text-center'>Progress</div>
                 </div>
               }
               <div className={`border border-t-0 border-richblack-700 ${index === filteredCourses.length - 1 ? "rounded-b-lg": ""} cursor-pointer`} key={index} onClick={() => navigate(`/course-content/${element._id}`)}>

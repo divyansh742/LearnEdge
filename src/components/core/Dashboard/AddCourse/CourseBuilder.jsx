@@ -108,17 +108,17 @@ const CourseBuilder = ({course,setCourse,setStep}) => {
                 {/* section name div */}
                 <div className='flex justify-between items-center py-2 border-b border-richblack-600'>
                   {editingSection === section?._id ? 
-                    (<div className='flex items-end gap-2 '>
-                      <MdFormatListBulletedAdd className='text-richblack-400' size={24}/>
-                      <span className='text-richblack-50 font-semibold'>{index+1}.</span>
-                      <input type="text" autoFocus value={editSectionName} onChange={(e) => setEditSectionName(e.target.value)} className='bg-transparent text-richblack-50 font-semibold px-1 border-b border-richblack-200'/>
+                    (<div className='flex items-end md:gap-2 gap-1'>
+                      <MdFormatListBulletedAdd className='shrink-0 text-richblack-400' size={24}/>
+                      <span className='text-richblack-50 font-semibold shrink-0'>{index+1}.</span>
+                      <input type="text" autoFocus value={editSectionName} onChange={(e) => setEditSectionName(e.target.value)} className='bg-transparent text-richblack-50 font-semibold px-1 border-b w-full min-w-[100px] max-w-[250px]   focus:outline-none border-richblack-200'/>
 
-                      <TiTick size={25} className='text-richblack-400 cursor-pointer' onClick={() => handleEditSectionApi(section)}/>
-                      <MdCancel size={25} className='text-richblack-400 cursor-pointer' onClick={() => {setEditingSection(null); setEditSectionName(null)}}/>                    
+                      <TiTick size={25} className='text-richblack-400 cursor-pointer shrink-0' onClick={() => handleEditSectionApi(section)}/>
+                      <MdCancel size={25} className='text-richblack-400 cursor-pointer shrink-0' onClick={() => {setEditingSection(null); setEditSectionName(null)}}/>                    
                     </div>) 
                       : 
                     (<div className='flex items-end gap-2 '>
-                      <MdFormatListBulletedAdd className='text-richblack-400' size={24}/>
+                      <MdFormatListBulletedAdd className='self-center text-richblack-400' size={24}/>
                       <span className='text-richblack-50 font-semibold'>{index+1}. {section?.sectionName}</span>
                     </div>)
                   }
@@ -136,7 +136,7 @@ const CourseBuilder = ({course,setCourse,setStep}) => {
                       return (
                       <div key={subSecindex} className='flex justify-between items-center py-2 border-b border-richblack-600 pl-6'>
                         <div className='flex items-end gap-2 '>
-                          <MdFormatListBulleted className='text-richblack-400' size={20}/>
+                          <MdFormatListBulleted className='self-center text-richblack-400' size={20}/>
                           <span className='text-richblack-50 text-sm'>{index+1}.{subSecindex+1}. {subSection?.title}</span>
                         </div>
                         <div className='flex text-richblack-400 items-center gap-2 cursor-pointer'>

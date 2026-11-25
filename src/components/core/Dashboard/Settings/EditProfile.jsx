@@ -46,9 +46,9 @@ const EditProfile = () => {
   
   return (
     <form onSubmit={handleSubmit(submitUpdateForm)}>
-      <div className="flex  justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 p-8 px-12 mb-10 flex-col gap-6">
+      <div className="flex  justify-between rounded-md border-[1px] border-richblack-700 bg-richblack-800 md:p-8 md:px-12 p-4 mb-10 flex-col gap-6">
         <p className='text-white font-semibold text-lg'>Profile Information</p>
-          <div className='flex gap-6'>
+          <div className='flex gap-6 md:flex-row flex-col'>
             {/* firstName */}
             <label className='w-full'>
               <p className='mb-1 text-sm text-richblack-5 font-medium'>First Name</p>
@@ -66,7 +66,7 @@ const EditProfile = () => {
               { errors.lastName && (<span>Please enter your Last Name</span>)}
             </label>
           </div>
-          <div className='flex gap-6'>
+          <div className='flex gap-6 flex-col md:flex-row'>
             {/* Date of Birth */}
             <label className='w-full'>
               <p className='mb-1 text-sm text-richblack-5 font-medium'>Date of Birth</p>
@@ -102,7 +102,7 @@ const EditProfile = () => {
               </div>
             </div>
           </div>
-          <div className='flex gap-6'>
+          <div className='flex gap-6 flex-col md:flex-row'>
             {/* phoneNo */}
             <label className='w-full'>
               <p className='mb-1 text-sm text-richblack-5 font-medium'>Phone Number</p>

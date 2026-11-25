@@ -20,7 +20,7 @@ const CourseCreated = ({course,setStep}) => {
         </div>
         <div className='flex justify-between'>
             <button className= "text-center text-[16px] px-4 py-3 rounded-md font-bold hover:scale-95 w-fit flex gap-1 items-center bg-richblack-800 transition-all duration-200 h-fit shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)] hover:shadow-none" onClick={() => setStep(3)}><IoIosArrowBack/> Back</button>
-            <div className='flex gap-4'>
+            <div className='flex gap-4 flex-wrap justify-end'>
                 <CTAButton linkTo="/dashboard/instructor">Go To Dashboard</CTAButton>
                 <CTAButton active={true} linkTo={"/dashboard/my-courses"} >View My Courses</CTAButton>
             </div>

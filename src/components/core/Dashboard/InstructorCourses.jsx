@@ -75,50 +75,52 @@ const InstructorCourses = () => {
       )}
       {courses?.length === 0 && (<p className='text-center mt-20 text-xl '>No Courses Available!</p>)}
       {courses?.length > 0 && 
-      (<div className='border border-richblack-700 rounded-md text-richblack-100 mt-10'>
+      (<div className='border overflow-x-auto border-richblack-700 rounded-md text-richblack-100 mt-10'>
+        <div className='min-w-[650px] md:min-w-0'>
           <div className='border-b border-richblack-700'>
             <div className='flex w-full text-sm p-3'>
-              <p className='w-[70%]'>COURSES</p>
-              <p className='w-[10%] text-center'>DURATION</p>
-              <p className='w-[10%] text-center'>PRICE</p>
-              <p className='w-[10%] text-center'>ACTION</p>
+              <p className='w-[60%] sticky left-3 z-10'>COURSES</p>
+              <p className='w-[15%] text-center'>DURATION</p>
+              <p className='w-[12%] text-center'>PRICE</p>
+              <p className='w-[13%] text-center'>ACTION</p>
             </div>
           </div>
-        {courses?.map((element,index) => {
-          return (<div className='flex w-full p-2 my-4' key={index}>
-            <div className='w-[70%] flex gap-4 '>
-              <img src={element?.thumbnail} alt="thumbnail" className='w-[33%] rounded-lg aspect-[3/2] object-fill'/>
-              <div className='flex flex-col justify-between h-full'>
-                <p className='text-richblack-5 text-lg font-semibold'>{element?.courseName}:</p>
-                <p className='text-sm'>{truncateWords(18,element?.courseDescription)}</p>
-                <p className='text-xs text-richblack-25'>Created: {new Date(element?.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true }).replace(',',' |')}
-                </p>
-                <div className='w-fit bg-richblack-700  rounded-3xl text-xs'>
-                  {element?.status === "Published" && (<span className='flex text-yellow-100 items-center gap-1 py-1 px-2'>
-                    <FaCheckCircle/> Published
-                  </span>)}
-                  {element?.status === "Draft" && (<span className='flex text-pink-100 items-center gap-1 py-1 px-2'>
-                    <TbClockHour3Filled size={14}/> Drafted
-                  </span>)}
+          {courses?.map((element,index) => {
+            return (<div className='flex w-full p-2 my-4' key={index}>
+              <div className='w-[60%] flex gap-4  '>
+                <img src={element?.thumbnail} alt="thumbnail" className='w-[33%] rounded-lg aspect-[3/2] object-fill '/>
+                <div className='flex flex-col justify-between h-full sticky left-3 z-10'>
+                  <p className='text-richblack-5 text-lg font-semibold'>{element?.courseName}:</p>
+                  <p className='text-sm'>{truncateWords(18,element?.courseDescription)}</p>
+                  <p className='text-xs text-richblack-25'>Created: {new Date(element?.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: true }).replace(',',' |')}
+                  </p>
+                  <div className='w-fit bg-richblack-700  rounded-3xl text-xs'>
+                    {element?.status === "Published" && (<span className='flex text-yellow-100 items-center gap-1 py-1 px-2'>
+                      <FaCheckCircle/> Published
+                    </span>)}
+                    {element?.status === "Draft" && (<span className='flex text-pink-100 items-center gap-1 py-1 px-2'>
+                      <TbClockHour3Filled size={14}/> Drafted
+                    </span>)}
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className='w-[10%] text-center my-auto text-richblack-100'>{secToDuration(element?.totalDuration)}</div>
-            <div className='w-[10%] text-center my-auto text-richblack-100'>₹{(element?.price).toLocaleString()}</div>
-            <div className='w-[10%] flex justify-center my-auto text-2xl gap-2 text-richblack-100 cursor-pointer'><Link to="/dashboard/add-course" state={{course:element}}><MdEdit title='Edit'
-            /> </Link>
-            <MdDelete 
-            title="Delete" 
-            onClick={() => setConfirmationModalData({
-              text1: "Are You Sure",
-              text2: "This will Delete the Course along with its associated users",
-              btn1text: "Delete",
-              btn2text: "Cancel",
-              btn1Handler: () => handleDelete(element?._id),
-              btn2Handler: () => setConfirmationModalData(null),
-            })}/></div>
-          </div>)
-        })}
+              <div className='w-[15%] text-center my-auto text-richblack-100'>{secToDuration(element?.totalDuration)}</div>
+              <div className='w-[12%] text-center my-auto text-richblack-100'>₹{(element?.price).toLocaleString()}</div>
+              <div className='w-[13%] flex justify-center my-auto text-2xl gap-2 text-richblack-100 cursor-pointer'><Link to="/dashboard/add-course" state={{course:element}}><MdEdit title='Edit'
+              /> </Link>
+              <MdDelete 
+              title="Delete" 
+              onClick={() => setConfirmationModalData({
+                text1: "Are You Sure",
+                text2: "This will Delete the Course along with its associated users",
+                btn1text: "Delete",
+                btn2text: "Cancel",
+                btn1Handler: () => handleDelete(element?._id),
+                btn2Handler: () => setConfirmationModalData(null),
+              })}/></div>
+            </div>)
+          })}
+        </div>
       </div>)}
       {confirmationModalData && (<ConfirmationModal modalData={confirmationModalData}/>)}
     </div>

@@ -102,7 +102,7 @@ const EditLecture = ({course,setCourse,setSections,lectureData,setLectureData}) 
   return (
         <div className="fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm">
             <form onSubmit={handleSubmit(submitForm)}>
-                <div className="w-11/12 max-w-[450px] bg-richblack-800 flex flex-col gap-2 rounded-lg">
+                <div className="max-w-[450px] bg-richblack-800 flex flex-col gap-2 rounded-lg">
                     <div className='flex bg-richblack-700 justify-between p-3 border-b border-richblack-100  font-semibold rounded-t-lg'>
                         <p>{edit ? "Editing Lecuture" : "Add Lecture"}</p>
                         <IoIosClose size={25} className='cursor-pointer' onClick={() => setLectureData(null)}/>

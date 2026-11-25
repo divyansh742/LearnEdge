@@ -200,8 +200,8 @@ const CourseInformation = ({course,setCourse,setStep}) => {
                 )}
                 {!previewSource && (<div className={`w-full h-44 rounded-lg bg-richblack-700 p-3 text-richblack-5 ${isDragging ? "border-4 border-yellow-50": "border-2 border-richblack-400"} border-dashed text-center flex flex-col gap-2 justify-center items-center`}>
                     <div className='text-yellow-50 bg-pure-greys-800 w-fit p-2 rounded-full'><IoCloudUploadOutline size={30}/></div>
-                    <p className='text-richblack-200 text-sm w-[43%] text-center'>Drag and drop an image, or <span className='text-yellow-50'>Browse</span> Max 6MB , Type - PNG , JPEG , JPG</p>
-                    <div className='flex gap-10 text-richblack-400 font-semibold text-sm justify-center'>
+                    <p className='text-richblack-200 text-sm md:w-[43%] text-center'>Drag and drop an image, or <span className='text-yellow-50'>Browse</span> Max 6MB , Type - PNG , JPEG , JPG</p>
+                    <div className='flex md:gap-10 gap-4 items-center text-richblack-400 font-semibold text-sm justify-center'>
                         <li>Aspect ratio 16:9</li>
                         <li>Recommended size 1024x576</li>
                     </div>

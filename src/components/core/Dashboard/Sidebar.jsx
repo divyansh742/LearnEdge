@@ -27,16 +27,16 @@ const Sidebar = () => {
     }
   return (
     <div>
-        <div className="flex min-w-[200px] flex-col border-r-richblack-700 h-full border-r bg-richblack-800 py-10">
-            <div className="flex flex-col">
+        <div className="flex md:min-w-[200px] w-full md:flex-col md:border-r-richblack-700 h-full items-center md:border-r bg-richblack-800 md:py-10">
+            <div className="flex md:flex-col mx-auto w-full justify-between">
                 {
                     sidebarLinks.map((element) =>{
                         if(element.type != null &&  element?.type !== user?.accountType) return null;
                         return (<SidebarLink key={element.id} link={element} iconName={element.icon}/>)
                     })
                 }
-                <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700" />
-                <div className="flex flex-col">
+                <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700 hidden md:block" />
+                <div className="flex md:flex-col">
                     <SidebarLink 
                         link={{name:"Settings" , path: "/dashboard/settings"}}
                         iconName="VscSettingsGear"
@@ -52,11 +52,11 @@ const Sidebar = () => {
                                 btn2Handler : () => setConfirmationModalData(null)
                             })
                         }}
-                        className="px-8 py-2 text-sm font-medium text-richblack-300"
+                        className="px-8 py-2 w-full text-sm font-medium text-richblack-300"
                     >
-                        <div className="flex items-center gap-x-3"> 
+                        <div className="flex  items-center md:gap-x-3" title="Logout"> 
                             <VscSignOut className="text-lg"/>
-                            <span>Logout</span>
+                            <span className="hidden md:block">Logout</span>
                         </div>
                     </button>
                 </div>

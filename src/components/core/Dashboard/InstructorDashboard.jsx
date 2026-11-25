@@ -63,14 +63,14 @@ const InstructorDashboard = () => {
         <h1 className='flex items-center text-2xl gap-1 font-semibold'>Hi, {user?.firstName} <MdWavingHand className='text-yellow-50'/></h1>
         <p className='text-richblack-300 text-sm mb-6'>Here's what's happening with your courses today.</p>
 
-        <div className='flex gap-3 w-full mb-6'>
+        <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2  gap-3 w-full mb-6'>
             <TopStatsCards Icon={LuWallet} title="Total Earnings" value={"₹" + totalEarning.toLocaleString()} text="From all Courses" iconBg="bg-violet-800" iconCol="text-violet-300"/>
             <TopStatsCards Icon={MdOutlinePeopleOutline} title="Total Students" value={totalStudents} text="Enrolled in all Courses" iconBg="bg-blue-600" iconCol="text-blue-100"/>
             <TopStatsCards Icon={IoBookOutline} title="Published Courses" value={totalCourse} text={`${pubCourse} Published · ${draftCourse} Drafted`} iconBg="bg-green-800" iconCol="text-green-300"/>
             <TopStatsCards Icon={FaRegStar} title="Average Rating" value={totalRating/5+" / 5"} text={`Based on ${totalReview} reviews`} iconBg="bg-brown-700" iconCol="text-brown-200"/>
         </div>
         {/* Barchart */}
-        <div className='flex w-full gap-3 mb-6'>
+        <div className='flex md:flex-row flex-col w-full gap-3 mb-6'>
             <BarCharts data={BarChartEarningData} Icon={FaIndianRupeeSign} iconColor="#049069" text="Earnings Overview"/>
             <BarCharts data={BarChartEnrolledData} Icon={MdPeopleOutline} iconColor="#0C6A87" text="Students Enrolled"/>
         </div>
@@ -79,9 +79,9 @@ const InstructorDashboard = () => {
             <div className='flex justify-between mb-3'>
                 <div className='flex gap-2 items-center'>
                     <GrDocumentPerformance size={23} className='text-violet-500'/>
-                    <p className='text-richblack-100 font-semibold'>Course Performance</p>
+                    <p className='text-richblack-100 md:text-base text-sm font-semibold'>Course Performance</p>
                 </div>
-                <button className='flex gap-1 items-center text-violet-400 text-sm cursor-pointer font-semibold' to="/dashboard/my-courses" onClick={() => navigate("/dashboard/my-courses")}>
+                <button className='flex gap-1 items-center text-violet-400 md:text-sm text-xs cursor-pointer font-semibold' to="/dashboard/my-courses" onClick={() => navigate("/dashboard/my-courses")}>
                     <p>View All Courses</p>
                     <FaArrowRight/>
                 </button> 
