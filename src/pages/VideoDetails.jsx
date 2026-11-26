@@ -50,11 +50,11 @@ const VideoDetails = () => {
 
   return (
     <div className='text-white'>
-      <div className='flex'>
-        <div className='w-[20%] '>
+      <div className='flex md:flex-row flex-col'>
+        <div className='md:w-[20%] w-full'>
           {course && <VideoDetailsSidebar course={course} setCourse={setCourse} currVideo={currVideo} setCurrVideo={setCurrVideo} progress={progress} setProgress={setProgress}/>}
         </div>
-        <div className='mx-auto w-[80%]'>
+        <div className='md:mx-auto md:w-[80%]'>
 
           <VideoPlayer currVideo={currVideo} setCurrVideo={setCurrVideo} sections={course?.courseContent} course={course} progress={progress} setProgress={setProgress}/>
         </div>

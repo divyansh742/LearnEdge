@@ -67,7 +67,7 @@ const VideoPlayer = ({currVideo,setCurrVideo,sections,course,progress,setProgres
     }
   }
   return (
-    <div className='text-lg flex flex-col text-center text-white p-8'>
+    <div className='text-lg flex flex-col text-center text-white md:p-8 p-4'>
         {!currVideo && (<div className='mt-20'>
           No Videos Found!
         </div>)}
@@ -84,7 +84,7 @@ const VideoPlayer = ({currVideo,setCurrVideo,sections,course,progress,setProgres
             onEnded={() => setIsEnded(true)}
           >
             {/* <BigPlayButton style={{display : "none"}}/> */}
-            <div className=' z-50  absolute top-[50%] w-full h-[20%]'
+            <div className=' z-50  absolute sm:top-[50%] top-[40%] w-full h-[20%]'
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
             >
@@ -107,7 +107,7 @@ const VideoPlayer = ({currVideo,setCurrVideo,sections,course,progress,setProgres
             </div>
           </Player>
         </div>)}
-        <div className='flex justify-between mt-2 items-center'>
+        <div className='flex md:flex-row flex-col justify-between md:gap-0 gap-2 mt-2 md:items-center'>
           <div className='flex items-start flex-col  gap-2'>
             <p className='text-2xl text-inter font-semibold text-richblack-5'>{currVideo?.title}</p>
             <p className='text-sm text-richblack-50'>{currVideo?.description}</p>
@@ -117,7 +117,7 @@ const VideoPlayer = ({currVideo,setCurrVideo,sections,course,progress,setProgres
               year: 'numeric'
             })}</p>)}
           </div>
-          <Link to={`/courses/${course?._id}`}><IconBtn text="More Details" customClasses={"text-sm w-fit h-fit"} icon={true}/></Link>          
+          <Link to={`/courses/${course?._id}`}><IconBtn text="Course Details" customClasses={"text-sm w-fit h-fit"} icon={true}/></Link>          
         </div>
     </div>
   )

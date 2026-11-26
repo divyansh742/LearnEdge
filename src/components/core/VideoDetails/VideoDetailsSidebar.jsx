@@ -1,4 +1,4 @@
-import React, { useEffect,useState } from 'react'
+import { useEffect,useState } from 'react'
 import { apiConnector } from '../../../services/apiConnector';
 import toast from 'react-hot-toast';
 import { progressEndpoints } from '../../../services/api';
@@ -7,7 +7,9 @@ import SectionAccordion from './SectionAccordion';
 import { useSelector } from 'react-redux';
 import ReviewModal from './ReviewModal';
 import { IoChevronBackCircle } from "react-icons/io5";
+import { MdMenuOpen } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
+import { createPortal } from 'react-dom';
 
 const {GET_COURSE_PROGRESS_API} = progressEndpoints;
 
@@ -18,6 +20,9 @@ const VideoDetailsSidebar = ({course,setCourse,currVideo,setCurrVideo,progress,s
     const userReview = course?.ratingAndReviews?.find(element => element?.user === user?._id);
     const [reviewData,setReviewData] = useState(null);
     const [activeSections,setActiveSections] = useState(Array(0));
+    //open close sidebar content mobile layout
+    const [openContent,setOpenContent] = useState(false);
+
     const handleActive = (id) => {
         setActiveSections(
             !activeSections.includes(id) ? activeSections.concat([id]): activeSections.filter((e) => e !== id)
@@ -82,18 +87,22 @@ const VideoDetailsSidebar = ({course,setCourse,currVideo,setCurrVideo,progress,s
     }
     
   return (
-    <div className='bg-richblack-800 pt-4 h-[120vh] overflow-y-auto custom-scrollbar'>
-        <div className='text-center border-b flex flex-col border-richblack-400 m-4 gap-4'>
-            <div className='flex justify-between items-center mb-3'>
-                <IoChevronBackCircle onClick={() => navigate(-1)} size={30} className='cursor-pointer text-richblack-200'/>
-                <IconBtn text={userReview ? "Edit Review" : "Add Review"} icon={true} customClasses={"w-fit"} onClick={openReviewModal}/>
+    <div className='bg-richblack-800 md:pt-4  md:h-[120vh] overflow-y-auto custom-scrollbar'>
+        <div className='text-center md:border-b flex md:flex-col border-richblack-400 md:m-4 gap-4 m-2 justify-between'>
+            <div className='flex justify-between items-center md:gap-0 gap-1 md:mb-3 flex-wrap '>
+                <IoChevronBackCircle onClick={() => navigate(-1)} size={30} className='cursor-pointer text-richblack-200  '/>
+                <IconBtn text={userReview ? "Edit Review" : "Add Review"} icon={true} customClasses={"w-fit md:text-base text-xs px-[6px]  py-1 md:py-2 md:px-5"} onClick={openReviewModal}/>
             </div>
-            <div className='flex flex-col justify-start mb-4 text-left'>
-                <p className='font-semibold text-lg'>{course.courseName}</p>
-                {progress && (<p className='text-caribbeangreen-100 text-sm font-semibold'>{`${progress?.completed}/${progress?.total} Completed`}</p>)}
+            <div className='flex flex-col justify-start md:items-start items-center md:mb-4 text-left '>
+                <p className='font-semibold md:text-lg text-base md:text-left text-center'>{course.courseName}</p>
+                {progress && (<p className='text-caribbeangreen-100 text-xs md:text-sm font-semibold'>{`${progress?.completed}/${progress?.total} Completed`}</p>)}
+            </div>
+            <div className='flex items-center gap-1 justify-end md:hidden flex-wrap' onClick={() => setOpenContent(true)}>
+                <p className='font-semibold text-richblack-100 text-sm'>Contents</p>
+                <MdMenuOpen size={30} className='text-richblack-100'/>
             </div>
         </div>
-        <div className='mt-2 flex flex-col gap-2'>
+        <div className='mt-2 md:flex flex-col  gap-2 hidden '>
             {
                 course?.courseContent?.map((element,index) => {
                     return (
@@ -102,7 +111,32 @@ const VideoDetailsSidebar = ({course,setCourse,currVideo,setCurrVideo,progress,s
                 })
             }
         </div>
-        {reviewData && (<ReviewModal reviewData={reviewData} setReviewData={setReviewData} setCourse={setCourse}/>)}  
+        {reviewData && (<ReviewModal reviewData={reviewData} setReviewData={setReviewData} setCourse={setCourse}/>)}
+        {/* sidebar layout */}
+        {openContent && createPortal(
+            <div className={`fixed inset-0 z-[99999] w-screen backdrop-blur-sm bg-opacity-10 md:hidden ${openContent ? "bg-richblack-900" : "bg-transparent"}`} onClick={() => setOpenContent(false)}>
+                <div className={`fixed  top-0 right-0 bottom-0 w-[60%]
+                bg-richblack-900 border-l border-richblack-700
+                overflow-y-auto overscroll-y-contain transition-transform duration-300 ease-in-out ${openContent ? "translate-x-0":"translate-x-full"}`}
+                onClick={(e) => e.stopPropagation()}>
+                    <div className="p-4">
+                        <p className="font-semibold text-richblack-5">
+                            Course Contents
+                        </p>
+                        <p className="text-xs text-richblack-100">
+                            Click on box to update progress
+                        </p>
+                    </div>
+
+                    {course?.courseContent?.map((element,index) => {
+                        return (
+                            <SectionAccordion course={element} courseId={course?._id} key={index} isActive={activeSections} handleActive={handleActive} progress={progress} setProgress={setProgress} currVideo={currVideo} setCurrVideo={setCurrVideo} setOpenContent={setOpenContent}/>
+                        )
+                    })}
+                </div>
+            </div>,
+            document.body
+        )}
     </div>
   )
 }

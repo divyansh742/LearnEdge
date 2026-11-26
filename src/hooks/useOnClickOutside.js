@@ -4,7 +4,7 @@ const useOnClickOutside = (ref,handlerFunction) => {
     useEffect(() => {
       const listener = (event) => {
         //touch inside or on the ref component do nothing
-        if(!ref.current || ref.current.contains(event.target)){
+        if(!ref?.current || ref.current.contains(event.target)){
             return;
         }
         handlerFunction(event);

@@ -24,7 +24,7 @@ const ProfileDropDown = () => {
           <img src={user?.image} alt="profile" className='rounded-full w-[32px]'/>
         </button>
         {open && 
-          <div ref={ref} onClick={(e) => e.stopPropagation()} className='absolute min-w-max top-[140%] left-[-250%] z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800 flex flex-col'>
+          (<div ref={ref} onClick={(e) => e.stopPropagation()} className='absolute min-w-max top-[140%] left-[-250%] z-[1000] divide-y-[1px] divide-richblack-700 overflow-hidden rounded-md border-[1px] border-richblack-700 bg-richblack-800 flex flex-col'>
             <Link to={"/dashboard/my-profile"} onClick={() => setOpen(false)}>
               <div className='flex gap-2 p-2 items-center rounded-sm text-richblack-100 hover:bg-richblack-700  hover:text-richblack-5 font-inter'>
                 <MdSpaceDashboard/>
@@ -39,7 +39,7 @@ const ProfileDropDown = () => {
               <MdOutlineLogout/>
               Logout
             </div>
-          </div>
+          </div>)
         }
     </div>
   )

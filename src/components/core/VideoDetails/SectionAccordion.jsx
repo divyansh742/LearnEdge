@@ -10,10 +10,14 @@ import { progressEndpoints } from "../../../services/api";
 const {UPDATE_PROGRESS_API} = progressEndpoints;
 
 
-const SectionAccordion = ({ course, isActive, handleActive ,progress,setProgress,courseId,currVideo,setCurrVideo}) => {
+const SectionAccordion = ({ course, isActive, handleActive ,progress,setProgress,courseId,currVideo,setCurrVideo,setOpenContent}) => {
   const contentEl = useRef(null)
   // Accordian state
   const [active, setActive] = useState(false)
+
+  if(!setOpenContent){
+    setOpenContent = () => {return}
+  }
   useEffect(() => {
     setActive(isActive?.includes(course._id))
   }, [isActive,course])
@@ -92,7 +96,7 @@ const SectionAccordion = ({ course, isActive, handleActive ,progress,setProgress
                         onClick={() => handleUpdateProgress(subSec._id)}
                     >{isPlaying ? <FaPlay/> : (isCompleted ? (<IoIosCheckbox size={20}/>): (<MdCheckBoxOutlineBlank size={20}/>)) }</span>
                     <p className={`${isPlaying ? "text-blue-100" : (isCompleted ? "line-through" : "")} cursor-pointer`}
-                        onClick={() => setCurrVideo(subSec)}
+                        onClick={() => {setCurrVideo(subSec); setOpenContent(false)}}
                     >{subSec?.title}</p>
                     <IoIosTv size={18}/>
                 </div>
